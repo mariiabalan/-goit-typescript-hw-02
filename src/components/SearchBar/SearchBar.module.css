@@ -1,0 +1,29 @@
+.form {
+  background-color: rgb(3, 124, 13);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  display: flex;
+  cursor: pointer;
+  background-color: rgb(182, 224, 157);
+  border: none;
+  color: rgb(1, 49, 5);
+}
+.field {
+  background-color: rgb(182, 224, 157);
+  border: none;
+  color: rgb(1, 49, 5);
+}
+.field::placeholder {
+  font-size: smaller;
+
+  color: rgba(30, 156, 97, 0.7);
+}
+
+.field:hover,
+:focus {
+  outline: none;
+}

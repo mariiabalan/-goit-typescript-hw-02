@@ -1,0 +1,41 @@
+.gallery {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 20px;
+  background-color: #333;
+}
+
+.image {
+  list-style: none;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #222;
+  position: relative;
+  width: 100%;
+  /* padding-top: 75%; */
+}
+
+.image > div {
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+}
+
+.image_info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.image_шnfo svg {
+  margin-right: 4px;
+}

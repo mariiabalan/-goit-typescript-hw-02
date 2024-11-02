@@ -1,0 +1,54 @@
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Заміна right: 0; bottom: 0; на ширину */
+  height: 100vh; /* Заміна bottom на висоту */
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal_content {
+  position: relative;
+
+  border-radius: 10px;
+
+  outline: none;
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Додає об’єм модальному вікну */
+}
+
+.modal_img_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Додає відступ між зображенням і вмістом */
+}
+
+.modal_img {
+  max-width: 100%;
+  max-height: 100vh;
+  border-radius: 8px;
+  object-fit: cover; /* Забезпечує адекватний показ зображення без викривлень */
+}
+
+.btn_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Додає анімацію на зміну кольору */
+  outline: none;
+}
+
+.btn_close:hover {
+  color: #ff0000; /* Колір змінюється при наведенні */
+}
