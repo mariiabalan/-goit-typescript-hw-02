@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import "./App.css";
+import s from "./App.module.css";
 import { fetchPhotos } from "./services/api";
 import ErrorMessage from "./components/ErrorMessage/ErroreMessage";
 import ImageGalery from "./components/ImageGallery/ImageGalery";
@@ -9,14 +9,15 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { Toaster } from "react-hot-toast";
 import ImageModal from "./components/ImageModal/ImageModal";
+import { Image } from "./types";
 
-const App = () => {
-  const [photos, setPhotos] = useState([]);
+const App: React.FC = () => {
+  const [photos, setPhotos] = useState<Image[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [selectedImage, setSelectedImages] = useState(null);
+  const [selectedImage, setSelectedImages] = useState<Image | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [itemsPerRow, setItemsPerRow] = useState(4);
   useEffect(() => {
@@ -42,8 +43,8 @@ const App = () => {
       try {
         setIsError(false);
         setIsLoading(true);
-        const photosToFetch = itemsPerRow * 2;
-        const data = await fetchPhotos(page, query, photosToFetch);
+
+        const data = await fetchPhotos(page, query);
         setPhotos((prev) => [...prev, ...data.results]);
       } catch {
         setIsError(true);
@@ -53,7 +54,7 @@ const App = () => {
     };
     getData();
   }, [page, query, itemsPerRow]);
-  const openModal = useCallback((photo) => {
+  const openModal = useCallback((photo: Image) => {
     setSelectedImages(photo);
     setIsModalOpen(true);
   }, []);
@@ -61,7 +62,7 @@ const App = () => {
     setIsModalOpen(false);
     setSelectedImages(null);
   }, []);
-  const handleSearch = (newQuery) => {
+  const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
     setPhotos([]);
     setPage(1);
@@ -80,8 +81,10 @@ const App = () => {
         image={selectedImage}
       />
       {isLoading && <Loader />}
-      {isError && <ErrorMessage message={isError} />}
-      {query && <LoadMoreBtn setPage={setPage} />}
+      {isError && (
+        <ErrorMessage message="An error occurred while fetching images." />
+      )}
+      {query && <LoadMoreBtn setPage={() => setPage((prev) => prev + 1)} />}
     </div>
   );
 };

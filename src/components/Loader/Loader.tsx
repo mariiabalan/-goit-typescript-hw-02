@@ -1,9 +1,9 @@
 import { ThreeDots } from "react-loader-spinner";
 import s from "./Loader.module.css";
 
-const Loader = () => {
+const Loader: React.FC = () => {
   return (
-    <div>
+    <div className={s.loader}>
       <ThreeDots
         visible={true}
         height="80"
@@ -12,7 +12,6 @@ const Loader = () => {
         radius="9"
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
-        className={s.loader}
       />
     </div>
   );

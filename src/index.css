@@ -5,15 +5,28 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424; /* Темний фон по замовчуванню */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif; /* Уникнути конфлікту з :root */
+  background-color: #f0f0f0; /* Світлий фон для body */
+}
+
 ul {
-  list-style-type: none; /* Removes bullet points */
-  padding: 0; /* Removes default padding */
-  margin: 0; /* Removes default margin */
+  list-style-type: none; /* Видалення маркерів списку */
+  padding: 0; /* Видалення стандартного відступу */
+  margin: 0; /* Видалення стандартного маргіну */
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  color: #333; /* Темний колір тексту для заголовків */
 }

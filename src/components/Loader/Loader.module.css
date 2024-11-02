@@ -1,4 +1,19 @@
 .loader {
-  justify-content: center;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Центруємо по горизонталі */
+  align-items: center; /* Центруємо по вертикалі */
+  height: 100vh; /* Завантажувач займає всю висоту вікна */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Легкий фон для кращої видимості */
+  z-index: 999; /* Перекриває інший контент */
+}
+
+@media (max-width: 600px) {
+  .loader {
+    height: 100%; /* Змінюємо висоту для малих екранів */
+  }
 }

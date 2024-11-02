@@ -2,12 +2,15 @@ import { Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import { TbCameraSearch } from "react-icons/tb";
 import s from "./SearchBar.module.css";
+interface SearchBarProps {
+  onSearch: (inputValue: string) => void;
+}
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const initialValues = {
     query: "",
   };
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: { query: string }) => {
     if (values.query.trim() === "") {
       toast.error("Please enter text to search for images.");
     } else {
